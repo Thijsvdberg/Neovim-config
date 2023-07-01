@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+require 'nvim-treesitter.install'.compilers = { "clang" }
+
 configs.setup({
   ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "java", "yaml", "markdown", "markdown_inline" }, -- one of "all" or a list of languages
 	ignore_install = { "phpdoc" }, -- List of parsers to ignore installing

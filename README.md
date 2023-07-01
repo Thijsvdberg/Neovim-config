@@ -18,8 +18,17 @@ To change font Windows Terminal, press `Ctrl+,` go to Default > Appearance > Fon
 Treesitter requires a c compiler to work, I installed mingw:
 ```
 choco install mingw
+choco install wget
+choco install ripgrep
+
 ```
 
+To fix broken parsers:
+```
+choco install llvm
+```
+
+Run `:TSUpdate`, `:TSInstall <broken-parser-name>`
 
 # Neovim from scratch
 
