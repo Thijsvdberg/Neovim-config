@@ -1,3 +1,26 @@
+# My Neovim setup on windows
+
+Yes, you heard me right, I'm using windows, whatever. But the Windows Terminal with PowerShell is not that bad. So install that first:
+[Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=nl-nl&gl=nl&rtc=1)
+
+Next we need a package manager for windows:
+[Chocolatey](https://chocolatey.org/install)
+
+## Nerdfont
+Download and install a Nerd Font from [nerdfonts.com](https://www.nerdfonts.com/font-downloads)
+
+To change font Windows Terminal, press `Ctrl+,` go to Default > Appearance > Font face.
+
+(optional) Press Ctrl+Shift+, to open settings as json. 
+
+
+## Additional dependencies
+Treesitter requires a c compiler to work, I installed mingw:
+```
+choco install mingw
+```
+
+
 # Neovim from scratch
 
 When I initially created this repo I didn't anticipate the amount of breaking changes introduced by the rapidly developing plugin ecosystem.  All packages are pinned in `master` so it will remain stable and you can always follow the [videos](https://www.youtube.com/watch?v=ctH-a-1eUME&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
