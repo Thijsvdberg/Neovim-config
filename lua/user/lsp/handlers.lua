@@ -80,8 +80,22 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
-	lsp_keymaps(bufnr)
-	local status_ok, illuminate = pcall(require, "illuminate")
+     local function toSnakeCase(str)
+      return string.gsub(str, "%s*[- ]%s*", "_")
+    end
+
+	    if client.name == 'omnisharp' then
+      local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
+      for i, v in ipairs(tokenModifiers) do
+        tokenModifiers[i] = toSnakeCase(v)
+      end
+      local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
+      for i, v in ipairs(tokenTypes) do
+        tokenTypes[i] = toSnakeCase(v)
+      end
+    end
+
+    local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return
 	end
