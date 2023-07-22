@@ -7,7 +7,8 @@ local servers = {
 	-- "bashls",
 	"jsonls",
 	-- "yamlls",
-    "omnisharp"
+    "omnisharp",
+    "vuels"
 }
 
 local settings = {
@@ -51,3 +52,24 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+vim.cmd([[
+let g:OmniSharp_highlight_groups = {
+\ 'ExcludedCode': 'NonText',
+\ 'ClassName': 'Typedef',
+\ 'StructName': 'Typedef',
+\ 'DelegateName': 'Structure',
+\ 'EnumName': 'Structure',
+\ 'InterfaceName': 'Typedef',
+\ 'ModuleName': 'Structure',
+\ 'NamespaceName': 'Include',
+\ 'RegexComment': 'Comment',
+\ 'RegexCharacterClass': 'Character',
+\ 'RegexAnchor': 'Type',
+\ 'RegexQuantifier': 'Number',
+\ 'RegexGrouping': 'Macro',
+\ 'RegexAlternation': 'Identifier',
+\ 'RegexText': 'String',
+\ 'RegexSelfEscapedCharacter': 'Delimiter',
+\ 'RegexOtherEscape': 'Delimiter'
+\}
+]])
