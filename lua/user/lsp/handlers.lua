@@ -95,6 +95,8 @@ M.on_attach = function(client, bufnr)
       end
     end
 
+ --   client.server_capabilities.semanticTokensProvider = nil;
+
     local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return
