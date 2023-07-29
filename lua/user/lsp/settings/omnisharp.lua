@@ -1,3 +1,15 @@
+
+vim.cmd([[
+let g:OmniSharp_highlight_groups = {
+\ 'PropertyName': 'PropertyName',
+\ 'FieldName': 'FieldName',
+\ 'Keyword': '@keyword',
+\ 'ControlKeyword': '@controlKeyword',
+\ 'InterfaceName': '@interface',
+\ 'StructName': '@struct',
+\}
+]])
+
 local opts = {
     enable_editor_support = true,
     enable_ms_build_load_projects_on_demand = false,

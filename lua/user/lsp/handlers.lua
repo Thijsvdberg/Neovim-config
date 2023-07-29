@@ -23,12 +23,14 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false, -- disable virtual text
+		virtual_text = {
+            severity = 'WARN'
+        }, -- disable virtual text
 		signs = {
 			active = signs, -- show signs
 		},
 		update_in_insert = true,
-		underline = true,
+		underline = false,
 		severity_sort = true,
 		float = {
 			focusable = true,
@@ -83,7 +85,7 @@ M.on_attach = function(client, bufnr)
      local function toSnakeCase(str)
       return string.gsub(str, "%s*[- ]%s*", "_")
     end
-
+--[[
 	if client.name == 'omnisharp' then
       local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
       for i, v in ipairs(tokenModifiers) do
@@ -94,7 +96,7 @@ M.on_attach = function(client, bufnr)
         tokenTypes[i] = toSnakeCase(v)
       end
     end
-
+    ]]--
  --   client.server_capabilities.semanticTokensProvider = nil;
 
     local status_ok, illuminate = pcall(require, "illuminate")
