@@ -52,3 +52,14 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+vim.cmd([[
+let g:OmniSharp_highlight_groups = {
+\ 'PropertyName': 'PropertyName',
+\ 'FieldName': 'FieldName',
+\ 'Keyword': '@keyword',
+\ 'ControlKeyword': '@controlKeyword',
+\ 'InterfaceName': '@interface',
+\ 'StructName': '@struct',
+\ 'DelegateName': '@delegate',
+\}
+]])

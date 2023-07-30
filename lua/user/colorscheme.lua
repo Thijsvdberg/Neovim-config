@@ -24,6 +24,7 @@ require('vscode').setup({
         ["@interface"] = { fg = vs.lime },
         ["@struct"] = { fg = vs.green },
         ["@controlKeyword"] = { fg = c.vscPink },
+        ["@delegate"] = { fg = vs.teal },
     }
 })
 require('vscode').load('dark')
