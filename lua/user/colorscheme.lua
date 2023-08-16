@@ -1,5 +1,5 @@
-local c = require('vscode.colors').get_colors()
-
+local status_ok, c = pcall(require, "vscode.colors")
+c = c.get_colors()
 local function sym(name)
     local env = getfenv()
     return str
