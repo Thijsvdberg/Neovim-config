@@ -78,7 +78,3 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- <C-.> -- code actions
 -- 
 
-keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("n", "<C-F12>", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-keymap("n", "<F8>", ":lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("i", "<F8>", "<ESC>:lua vim.lsp.buf.code_action()<CR>", opts)
