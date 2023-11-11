@@ -125,7 +125,8 @@ local mappings = {
         d = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration" },
         t = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation" },
         u = { "<cmd>lua vim.lsp.buf.references()<cr>", "Find references" },
-        q = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol info" }
+        q = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol info" },
+        i = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostics info" }
 
 	},
 	s = {
