@@ -8,7 +8,8 @@ local servers = {
 	"jsonls",
 	-- "yamlls",
     "omnisharp",
-    "vuels"
+    "vuels",
+    "sqlls"
 }
 
 local settings = {
@@ -62,4 +63,5 @@ let g:OmniSharp_highlight_groups = {
 \ 'StructName': '@struct',
 \ 'DelegateName': '@delegate',
 \}
+let g:OmniSharp_server_use_net6 = 1
 ]])

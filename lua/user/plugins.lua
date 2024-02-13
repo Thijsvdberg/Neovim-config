@@ -71,7 +71,7 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
     -- Snippets
-    use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
+    use { "L3MON4D3/LuaSnip" } --snippet engine
     use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
     -- LSP
@@ -80,14 +80,15 @@ return packer.startup(function(use)
     use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
     use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
     use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
-    use { "OmniSharp/omnisharp-vim", commit = "9c12ecc93d9a65d698523b24fd32fad385015bbb" }
+    use { "OmniSharp/omnisharp-vim", commit = "f9c5d3e3375e8b5688a4506e813cb21bdc7329b1" }
+    use { 'nanotee/sqls.nvim' }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim", tag = "0.1.2" }
 
     -- Treesitter
     use {
-        "nvim-treesitter/nvim-treesitter"
+        "nvim-treesitter/nvim-treesitter", tag = "v0.9.2"
     }
 
     -- Git

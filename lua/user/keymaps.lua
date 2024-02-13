@@ -78,3 +78,4 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 -- <C-.> -- code actions
 -- 
 
+keymap("n", "<leader><leader>s", "<cmd>source ~/AppData/Local/nvim/lua/user/luasnip.lua<CR>")
