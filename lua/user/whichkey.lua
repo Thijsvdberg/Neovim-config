@@ -81,8 +81,14 @@ local opts = {
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
+		d = {
+			"<cmd>%bd|e#|bd#<cr>",
+			"Close all buffers except current",
+		},
+		l = {
+			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"List buffers",
+		},
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -121,13 +127,12 @@ local mappings = {
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
 		f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        e = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
-        d = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration" },
-        t = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation" },
-        u = { "<cmd>lua vim.lsp.buf.references()<cr>", "Find references" },
-        q = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol info" },
-        i = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostics info" }
-
+		e = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto definition" },
+		d = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto declaration" },
+		t = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto implementation" },
+		u = { "<cmd>lua vim.lsp.buf.references()<cr>", "Find references" },
+		q = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Symbol info" },
+		i = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Diagnostics info" },
 	},
 	s = {
 		name = "Search",
