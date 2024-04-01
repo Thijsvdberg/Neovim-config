@@ -1,5 +1,4 @@
 local servers = {
-	"lua_ls",
 	-- "cssls",
 	-- "html",
 	-- "tsserver",
@@ -7,9 +6,10 @@ local servers = {
 	-- "bashls",
 	"jsonls",
 	-- "yamlls",
-    "omnisharp",
-    "vuels",
-    "sqlls"
+	"omnisharp",
+	"vuels",
+	"sqlls",
+	"lua_ls",
 }
 
 local settings = {
