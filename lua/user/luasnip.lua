@@ -1,4 +1,5 @@
 local ls = require("luasnip")
+local from_lua = require("luasnip.loaders.from_lua")
 -- some shorthands...
 local snip = ls.snippet
 local node = ls.snippet_node
@@ -15,7 +16,10 @@ ls.config.set_config({
 })
 ]]
 ls.add_snippets(nil, {
-	all = {
-		ls.parser.parse_snippet("lf", "var $1 = delegate($2)\n{\n  $0\n};;;;\n"),
-	},
+    all = {
+        ls.parser.parse_snippet("lf", "var $1 = delegate($2)\n{\n  $0\n};;;;\n"),
+    },
 })
+
+
+from_lua.load({ paths = "./lua/user/snippets" })
