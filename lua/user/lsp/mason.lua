@@ -9,7 +9,7 @@ local servers = {
 	-- "yamlls",
     "omnisharp",
     "vuels",
-    "sqlls"
+    "gopls"
 }
 
 local settings = {

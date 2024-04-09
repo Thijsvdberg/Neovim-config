@@ -81,10 +81,10 @@ return packer.startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
     use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
     use { "OmniSharp/omnisharp-vim", commit = "f9c5d3e3375e8b5688a4506e813cb21bdc7329b1" }
-    use { 'nanotee/sqls.nvim' }
+    use { 'ray-x/go.nvim', tag = "v0.2.1" }
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", tag = "0.1.2" }
+    use { "nvim-telescope/telescope.nvim", tag = "0.1.6" }
 
     -- Treesitter
     use {
