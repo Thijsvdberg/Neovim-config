@@ -11,8 +11,8 @@ local servers = {
 	"lua_ls",
     "clangd",
     "volar",
-    "tsserver"
-
+    "tsserver",
+    "gopls",
 }
 
 local settings = {

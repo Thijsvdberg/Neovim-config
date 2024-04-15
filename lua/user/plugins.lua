@@ -82,9 +82,10 @@ return packer.startup(function(use)
     use { "OmniSharp/omnisharp-vim", commit = "f9c5d3e3375e8b5688a4506e813cb21bdc7329b1" }
     use { 'nanotee/sqls.nvim' }
     use { 'vuejs/language-tools', tag = "v2.0.13" }
+    use { 'ray-x/go.nvim', tag = "v0.2.1" }
 
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", tag = "0.1.2" }
+    use { "nvim-telescope/telescope.nvim", tag = "0.1.6" }
 
     -- Treesitter
     use {
