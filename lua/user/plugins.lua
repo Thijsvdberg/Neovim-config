@@ -75,12 +75,13 @@ return packer.startup(function(use)
 
     -- LSP
     use { "neovim/nvim-lspconfig"  } -- enable LSP
-    use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} -- simple to use language server installer
-    use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
+    use { "williamboman/mason.nvim", commit = "751b1fcbf3d3b783fcf8d48865264a9bcd8f9b10"} -- simple to use language server installer
+    use { "williamboman/mason-lspconfig.nvim", commit = "44509689b9bf3984d729cc264aacb31cb7f41668" }
     use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
     use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
     use { "OmniSharp/omnisharp-vim", commit = "f9c5d3e3375e8b5688a4506e813cb21bdc7329b1" }
     use { 'nanotee/sqls.nvim' }
+    use { 'vuejs/language-tools', tag = "v2.0.13" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim", tag = "0.1.2" }
