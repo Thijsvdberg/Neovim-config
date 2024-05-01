@@ -74,8 +74,12 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+
+	if client.name == "volar" then
+        client.server_capabilities.documentFormattingProvider = false
+	end
 	if client.name == "tsserver" then
-		client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentFormattingProvider = false
 	end
 
 	if client.name == "sumneko_lua" then
