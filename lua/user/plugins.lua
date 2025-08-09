@@ -54,7 +54,7 @@ return packer.startup(function(use)
     use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
     use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
     --use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
-    use {"folke/which-key.nvim"}
+    use {"folke/which-key.nvim", tag = "v1.6.1"}
 
     -- Colorschemes
     use { "folke/lsp-colors.nvim" }
@@ -71,10 +71,10 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
     -- Snippets
-    use { "L3MON4D3/LuaSnip" } --snippet engine
+    use { "L3MON4D3/LuaSnip", tag = "v1.2.1" } --snippet engine
 
     -- LSP
-    use { "neovim/nvim-lspconfig"  } -- enable LSP
+    use { "neovim/nvim-lspconfig", tag = "v0.1.9" } -- enable LSP
     use { "williamboman/mason.nvim", commit = "751b1fcbf3d3b783fcf8d48865264a9bcd8f9b10"} -- simple to use language server installer
     use { "williamboman/mason-lspconfig.nvim", commit = "44509689b9bf3984d729cc264aacb31cb7f41668" }
     use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
@@ -82,7 +82,7 @@ return packer.startup(function(use)
     use { "OmniSharp/omnisharp-vim", commit = "f9c5d3e3375e8b5688a4506e813cb21bdc7329b1" }
     use { 'nanotee/sqls.nvim' }
     use { 'vuejs/language-tools', tag = "v2.0.13" }
-    use { 'ray-x/go.nvim', tag = "v0.2.1" }
+    --use { 'ray-x/go.nvim', tag = "v0.2.1" }
 
     -- Telescope
     use { "nvim-telescope/telescope.nvim", tag = "0.1.6" }

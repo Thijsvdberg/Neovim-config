@@ -7,12 +7,12 @@ local servers = {
 	"jsonls",
 	-- "yamlls",
 	"omnisharp",
-	"sqlls",
+	--"sqlls",
 	"lua_ls",
     "clangd",
     "volar",
     "tsserver",
-    "gopls",
+    --"gopls",
 }
 
 local settings = {
