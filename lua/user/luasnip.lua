@@ -8,6 +8,9 @@ local insert = ls.insert_node
 local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
+ls.config.setup({
+    enable_autosnippets = true
+})
 --[[
 ls.config.set_config({
     history = true,
