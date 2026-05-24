@@ -5,47 +5,61 @@ local i = ls.insert_node
 local t = ls.text_node
 local d = ls.dynamic_node
 
--- Helperfunctie die via Regex de parameters uit de regels eronder haalt
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "cs", "cpp" },
+    callback = function()
+        -- Voeg :/// toe aan de commentaarstijlen
+        vim.opt_local.comments:append(":///")
+        -- Zorg dat Neovim comments doortrekt bij een enter (r) en o/O (o)
+        vim.opt_local.formatoptions:append("ro")
+    end,
+})
 local function get_method_params_regex()
     local nodes = {}
+    
+    -- CONTROLE: Staan we al in een bestaand /// commentaarblok?
+    local cursor_pos = vim.api.nvim_win_get_cursor(0)
+    local current_row = cursor_pos[1] - 1 -- 0-indexed voor de API
+    
+    -- Check de huidige regel (vóór de cursor) en de regel erboven
+    local current_line = vim.api.nvim_buf_get_lines(0, current_row, current_row + 1, false)[1] or ""
+    local prev_line = current_row > 0 and vim.api.nvim_buf_get_lines(0, current_row - 1, current_row, false)[1] or ""
+    
+    -- Als de regel erboven al '///' bevat, of de huidige regel bevat al '///' vóór onze sleshes,
+    -- dan zijn we gewoon tekst aan het typen. Geef een lege node terug (doe niks).
+    if prev_line:match("^%s*///") or current_line:match("^%s*////") then
+        return sn(nil, { t("///") }) -- Typ gewoon de drie slashes en stop
+    end
+
+    -- Vanaf hier start de normale logica voor een NIEUW blok
     table.insert(nodes, t({ "/// <summary>", "/// " }))
-    table.insert(nodes, i(1)) -- Cursor start direct in de <summary>
+    table.insert(nodes, i(1)) 
     table.insert(nodes, t({ "", "/// </summary>" }))
 
-    -- Haal het huidige regelnummer op (1-indexed voor de API)
-    local cursor_pos = vim.api.nvim_win_get_cursor(0)
-    local current_row = cursor_pos[1] 
     local total_lines = vim.api.nvim_buf_line_count(0)
-    
-    -- We scannen nu maximaal 20 regels naar beneden voor lange, multi-line definities
     local method_signature = ""
-    for r = current_row, math.min(current_row + 20, total_lines - 1) do
-        -- vim.api.nvim_buf_get_lines gebruikt 0-indexed regels
+    
+    -- Scan vanaf de VOLGENDE regel naar beneden
+    for r = current_row + 1, math.min(current_row + 21, total_lines - 1) do
         local line_table = vim.api.nvim_buf_get_lines(0, r, r + 1, false)
         local line = line_table and line_table[1] or ""
         
         method_signature = method_signature .. " " .. line
-        
-        -- Stop zodra we de body '{' of een afsluiter ';' tegenkomen
         if line:match("{") or line:match(";") then
             break
         end
     end
 
-    -- Zoek naar alles tussen de EERSTE set haakjes (multi-line safe door %s*)
     local params_str = method_signature:match("%((.-)%)")
-    
     if params_str and params_str ~= "" then
-        -- Splits de parameters op basis van de komma's
         for param in string.gmatch(params_str, "[^,]+") do
-            -- Sloop overbodige spaties en regeleinden (newlines) eruit
             param = param:gsub("%s+", " ")
             param = param:gsub("^%s*(.-)%s*$", "%1")
+            param = param:gsub("=.*$", "")
+            param = param:gsub("^%s*(.-)%s*$", "%1")
             
-            -- Pak het allerlaatste woord van de parameter (de variabelenaam)
             local param_name = param:match("([%a%d_]+)$")
-            
-            if param_name then
+            if param_name and param_name ~= "this" then
                 table.insert(nodes, t({ "", '/// <param name="' .. param_name .. '"></param>' }))
             end
         end
@@ -54,7 +68,6 @@ local function get_method_params_regex()
     return sn(nil, nodes)
 end
 
--- De snippet definitie
 ls.add_snippets("cs", { 
     s({ trig = "///", snippetType = "autosnippet" }, {
         d(1, get_method_params_regex)
