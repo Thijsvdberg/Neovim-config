@@ -42,7 +42,7 @@ return {
             -- LSP
             { "<leader>l",  group = "LSP" },
             { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>",             desc = "Code Action" },
-            { "<leader>lf", "<cmd>lua vim.lsp.buf.format{async=true}<cr>",        desc = "Format" },
+            { "<leader>lf", function() require("conform").format({ async = true, lsp_fallback = true }) end,        desc = "Format" },
             { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>",                  desc = "Rename" },
             { "<leader>le", "<cmd>lua vim.lsp.buf.definition()<cr>",              desc = "Goto definition" },
             { "<leader>ld", "<cmd>lua vim.lsp.buf.declaration()<cr>",             desc = "Goto declaration" },

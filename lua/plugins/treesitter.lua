@@ -14,6 +14,6 @@ return {
 			},
 		})
 
-		configs.install({ "c_sharp" })
+		configs.install({ "c_sharp", "vue", "javascript", "html", "css" })
 	end,
 }
