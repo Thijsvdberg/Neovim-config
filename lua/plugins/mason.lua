@@ -19,9 +19,14 @@ return {
         config = function()
             require("mason-tool-installer").setup({
                 -- Een lijst met alle servers die Mason direct moet downloaden
-                ensure_installed = { "roslyn", "lua-language-server", "vtsls",
+                ensure_installed = {
+                    "roslyn",
+                    "lua-language-server",
+                    "vtsls",
                     { "vue-language-server", version = "1.8.27" },
-                    "prettier" },
+                    "prettier",
+                    "html-lsp",
+                },
                 -- Voer de installatie direct asynchroon uit bij het opstarten van Neovim
                 run_on_start = true,
             })

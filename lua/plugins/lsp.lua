@@ -1,6 +1,6 @@
 return {
     "hrsh7th/cmp-nvim-lsp",
-    ft = { "lua", "vue", "javascript" },
+    ft = { "lua", "vue", "javascript", "razor", "cshtml" },
 
     config = function()
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
