@@ -31,6 +31,9 @@ keymap("v", ">", ">gv^")
 keymap("x", "J", ":m '>+1<CR>gv=gv")
 keymap("x", "K", ":m '<-2<CR>gv=gv")
 
+-- Paste over selected text without overwriting the clipboard
+keymap("x", "p", [["_dP]])
+
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf", -- 'qf' staat voor Quickfix (en ook de Location List)
     callback = function(args)
