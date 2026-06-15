@@ -10,6 +10,7 @@ return {
 		},
 		keys = {
 			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Explorer" },
+			{ "<leader>E", "<cmd>Neotree reveal<cr>", desc = "Explorer Reveal" },
 		},
 		config = function()
 			require("neo-tree").setup({
