@@ -1,6 +1,6 @@
 return {
     "hrsh7th/cmp-nvim-lsp",
-    ft = { "lua", "vue", "javascript", "razor", "cshtml" },
+    ft = { "lua", "vue", "javascript", "razor", "cshtml", "cpp", "c" },
 
     config = function()
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -30,7 +30,8 @@ return {
         -- =========================================================================
         local raw_data_path = vim.fn.stdpath("data")
         -- Volar en vtsls vereisen op Windows harde backslashes (\) naar de TypeScript lib-map
-        local win_ts_lib = (raw_data_path .. [[\mason\packages\vue-language-server\node_modules\typescript\lib]]):gsub("/", "\\")
+        local win_ts_lib = (raw_data_path .. [[\mason\packages\vue-language-server\node_modules\typescript\lib]]):gsub(
+            "/", "\\")
 
         -- 2. Configureer JavaScript/TypeScript LSP (vtsls)
         vim.lsp.config("vtsls", {
@@ -60,5 +61,12 @@ return {
             },
         })
         vim.lsp.enable("vue")
+
+        vim.lsp.config("clangd", {
+            cmd = { "clangd" },
+            filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+            root_marker = { "compile_command.json", "compile_flags.txt", ".git" }
+        });
+        vim.lsp.enable("clangd");
     end,
 }

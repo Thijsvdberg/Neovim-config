@@ -26,6 +26,7 @@ return {
                     { "vue-language-server", version = "1.8.27" },
                     "prettier",
                     "html-lsp",
+                    "clangd"
                 },
                 -- Voer de installatie direct asynchroon uit bij het opstarten van Neovim
                 run_on_start = true,
